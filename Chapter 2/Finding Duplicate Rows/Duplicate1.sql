@@ -2,9 +2,9 @@ SELECT Customer.CustomerID,
   Customer.FirstName,
   Customer.LastName,
   COUNT(1) as NUM_ORDERS
-FROM Customer
+FROM Customer, Orders
   JOIN Orders ON Customer.CustomerID = Orders.CustomerID
 GROUP BY Customer.CustomerID,
   Customer.FirstName,
   Customer.LastName
-ORDER BY NUM_ORDERS DESC
+ORDER BY NUM_ORDERS DESC, Customer.CustomerID ASC
